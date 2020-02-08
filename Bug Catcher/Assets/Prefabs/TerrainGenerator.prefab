@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5764928407076669414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5993862043036780347}
+  - component: {fileID: 1582746664993320037}
+  m_Layer: 0
+  m_Name: TerrainGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5993862043036780347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5764928407076669414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582746664993320037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5764928407076669414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a08a6483dfcc9b4890d9f35ff16e504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainGrid: {fileID: 8216278237848936284, guid: 13d1e59e0681aee40b0f98666f3fc53f,
+    type: 3}
+  terrainTilemap: {fileID: 361190408865429499, guid: e229b562e7202de46816496d513b9931,
+    type: 3}
+  width: 200
+  height: 200
+  tileWater: {fileID: 11400000, guid: 16b8ae9ba3778fe4b9d2940782d31fb1, type: 2}
+  tileSand: {fileID: 11400000, guid: 567c1daf954db3b47aae9a4c17922676, type: 2}
+  tileGrass: {fileID: 11400000, guid: 7bfe12a3c9ab7ba41928b1d7889c0f4a, type: 2}
+  tileThickGrass: {fileID: 11400000, guid: 4eefb467c15cb1e4fa790d45ce45fdd2, type: 2}
+  tileBush: {fileID: 11400000, guid: bcbafe2985913c24baf2231b138e4251, type: 2}
+  waterHeight: 0.16
+  sandHeight: 0.18
+  grassHeight: 0.6
+  thickGrassHeight: 1
+  perlinScaleFactor: 0.028
