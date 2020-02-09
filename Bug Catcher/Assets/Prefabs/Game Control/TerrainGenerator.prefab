@@ -58,4 +58,4 @@ MonoBehaviour:
   sandHeight: 0.18
   grassHeight: 0.6
   thickGrassHeight: 1
-  perlinScaleFactor: 0.028
+  perlinScaleFactor: 6

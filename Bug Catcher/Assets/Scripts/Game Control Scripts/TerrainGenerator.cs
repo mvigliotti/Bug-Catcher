@@ -15,17 +15,18 @@ public class TerrainGenerator : MonoBehaviour
     int startX, startY;
 
     // the Tiles to be added to the Tilemap
-    [SerializeField] Tile tileWater = null, tileSand = null, tileGrass = null, tileThickGrass = null, tileBush = null;
+    [SerializeField] Tile tileWater = null, tileSand = null, tileGrass = null, tileThickGrass = null;
     // the Tiles height limits for Perlin Noise
-    [SerializeField] float waterHeight = 0f, sandHeight = 0f, grassHeight = 0f, thickGrassHeight = 0f;
+    [SerializeField] float waterHeight = 0f, sandHeight = 0f, grassHeight = 0f;
 
     // the scale factor for Perlin Noise
-    [SerializeField] [Range(0f, 1f)] float perlinScaleFactor = 0f;
+    [SerializeField] [Range(0f, 20f)] float perlinScaleFactor = 0f;
+    // the offset for Perlin Noise
+    float perlinOffsetX = 0f, perlinOffsetY = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(this.startX);
         this.instantiateTerrainGrid();
         this.setTilesInTilemap(this.generateTileArrayTerrain());
     }
@@ -58,17 +59,18 @@ public class TerrainGenerator : MonoBehaviour
     // generates a terrain map with Perlin Noise
     Tile[,] generateTileArrayTerrain()
     {
-        // find a new x and y-position on the map to generate random Perlin Noise
-        -this.startX = (int)(Random.value * 1000000f);
-
         // the array of Tiles that will be generated
         Tile[,] tiles = new Tile[this.width, this.height];
 
+        // the random x and y positions to generate Perlin Noise
+        this.perlinOffsetX = Random.Range(0f, 10000f);
+        this.perlinOffsetX = Random.Range(0f, 10000f);
+
         // for each x-position on the level starting at a random x
-        for (int x = this.startX; x < this.startX + this.width; x++)
+        for (int x = 0; x < this.width; x++)
         {
             // for each y-position on the level starting at a random y
-            for (int y = this.startY; y < this.startY + this.height; y++)
+            for (int y = 0; y < this.height; y++)
             {
                 // set the tile at that position to a Perlin-Noise generated tile
                 tiles[x, y] = generateTileWithPerlinNoise(x, y);
@@ -80,32 +82,37 @@ public class TerrainGenerator : MonoBehaviour
     // makes computations with Perlin Noise to select a tile to place at the given location
     Tile generateTileWithPerlinNoise(int x, int y)
     {
+        // randomly select an offset for x and y to generate a random map
+        Debug.Log(this.perlinOffsetX + " " + this.perlinOffsetY);
+
         // the given x and y coordinates scaled for Perlin Noise
-        float perlinScaledX = x * this.perlinScaleFactor;
-        float perlinScaledY = y * this.perlinScaleFactor;
+        float perlinScaledX = (float)x / this.width * this.perlinScaleFactor + this.perlinOffsetX;
+        float perlinScaledY = (float)y / this.height * this.perlinScaleFactor + this.perlinOffsetY;
 
         // the generated height value from Perlin Noise
         float height = Mathf.PerlinNoise(perlinScaledX, perlinScaledY);
-        
+        //Debug.Log(height);
+
+        // if the Perlin height is less than the threshold for water tiles, return a:
+        // water tile
         if (height < this.waterHeight)
         {
             return this.tileWater;
         }
+        // sand tile
         else if (height < this.sandHeight)
         {
             return this.tileSand;
         }
+        // grass tile
         else if (height < this.grassHeight)
         {
             return this.tileGrass;
         }
-        else if (height < this.thickGrassHeight)
-        {
-            return this.tileThickGrass;
-        }
+        // thick grass tile
         else
         {
-            return this.tileBush;
+            return this.tileThickGrass;
         }
         
     }
