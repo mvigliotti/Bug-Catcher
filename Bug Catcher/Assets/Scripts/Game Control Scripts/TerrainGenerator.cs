@@ -82,16 +82,12 @@ public class TerrainGenerator : MonoBehaviour
     // makes computations with Perlin Noise to select a tile to place at the given location
     Tile generateTileWithPerlinNoise(int x, int y)
     {
-        // randomly select an offset for x and y to generate a random map
-        Debug.Log(this.perlinOffsetX + " " + this.perlinOffsetY);
-
         // the given x and y coordinates scaled for Perlin Noise
         float perlinScaledX = (float)x / this.width * this.perlinScaleFactor + this.perlinOffsetX;
         float perlinScaledY = (float)y / this.height * this.perlinScaleFactor + this.perlinOffsetY;
 
         // the generated height value from Perlin Noise
         float height = Mathf.PerlinNoise(perlinScaledX, perlinScaledY);
-        //Debug.Log(height);
 
         // if the Perlin height is less than the threshold for water tiles, return a:
         // water tile
@@ -115,6 +111,12 @@ public class TerrainGenerator : MonoBehaviour
             return this.tileThickGrass;
         }
         
+    }
+
+    // calculates the center of the map
+    public Vector3 mapCenter()
+    {
+        return new Vector3(this.width / 2, this.height / 2);
     }
     
 }

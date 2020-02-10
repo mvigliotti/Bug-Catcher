@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainGenerator: {fileID: 1582746664993320037, guid: f77506ea8d087d4468aed8a8cbb79f1c,
     type: 3}
+  player: {fileID: 8780262036145061183, guid: f1b7ab367c25cbe4a990c0f992e431e8, type: 3}
