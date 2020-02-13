@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7550040242787237944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6714049490413320937}
+  - component: {fileID: 3557936708860018562}
+  m_Layer: 0
+  m_Name: BugSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6714049490413320937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550040242787237944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3557936708860018562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550040242787237944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe32e2f3252e964cabc33f4a267bffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ant: {fileID: 5580526994021697928, guid: 1144db2ec3ae205478dd1922098414f7, type: 3}
+  bee: {fileID: 2057557725728540978, guid: f67d48c12c9c55745bc50ae606e41a11, type: 3}
+  caveCricket: {fileID: 4680518956330243473, guid: 82c2b9bb8fb6148478781e95a9d0f497,
+    type: 3}
+  dragonfly: {fileID: -6545948092002629958, guid: 27974f6f1d10c024e860f28adce6ad70,
+    type: 3}
+  herculesBeetle: {fileID: -5486965489597502086, guid: 53e0000f1f8e1d94c91ca275247d7730,
+    type: 3}
+  orbWeaver: {fileID: 8386686347396995005, guid: d4aa73a9bc67f414f9d144eba84856a1,
+    type: 3}
+  prayingMantis: {fileID: 2195931784644482349, guid: e69634b8e28f1a543aef644ec9ca5985,
+    type: 3}
+  scorpion: {fileID: 4906909759714095171, guid: b4a6dffac80dbd04c87f3c7d4412396b,
+    type: 3}
+  waterStrider: {fileID: -6488300882604292555, guid: 9cf86e8eb5d534c4cb734f4cb8146975,
+    type: 3}

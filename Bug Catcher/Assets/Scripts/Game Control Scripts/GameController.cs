@@ -12,22 +12,15 @@ public class GameController : MonoBehaviour
     // the player
     [SerializeField] Player player;
 
-    // the Bugs that are close to the Player
-    IBug[] nearbyBugs;
+    // a BugSpawner that will spawn Bugs
+    [SerializeField] BugSpawner bugSpawner;
 
     // Start is called before the first frame update
     void Start()
     {
         instantiateTerrainGenerator();
+        instantiateBugSpawner();
         instantiatePlayer();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // displays text to pick up a bug if it is close enough
-        displayPickupText();
-        findNearbyBugs();
     }
 
     // instantiates a TerrainGenerator which will generate the terrain
@@ -37,6 +30,13 @@ public class GameController : MonoBehaviour
         terrainGenerator.name = "TerrainGenerator";
     }
 
+    // instantiates a BugSpawner which will spawn Bugs
+    void instantiateBugSpawner()
+    {
+        bugSpawner = Instantiate(bugSpawner);
+        bugSpawner.name = "BugSpawner";
+    }
+
     // instantiates a Player at the center of the map
     void instantiatePlayer()
     {
@@ -44,23 +44,11 @@ public class GameController : MonoBehaviour
         player.name = "Player";
     }
 
-    // displays a text to pickup a Bug if the Player is close enough
-    void displayPickupText()
+    // gets an array of GameObjects that have the tag 'Bug'
+    public GameObject[] existingBugs()
     {
-
-    }
-
-    // returns a list of Bugs that are currently close to the Player
-    GameObject[] findNearbyBugs()
-    {
-        // find all of the Bugs
-        GameObject[] allBugs = GameObject.FindGameObjectsWithTag("Bug");
-
-        // make an array of only the Bugs that are close to the Player
-        foreach (GameObject bug in allBugs)
-        {
-            if ()
-        }
+        GameObject[] bugs = GameObject.FindGameObjectsWithTag("Bug"); // the array of bugs in the game
+        return bugs; // return the list of bugs in the game
     }
 
 }

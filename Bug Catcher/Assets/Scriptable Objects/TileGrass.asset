@@ -35,3 +35,4 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
+  ant: {fileID: 5580526994021697928, guid: 1144db2ec3ae205478dd1922098414f7, type: 3}
